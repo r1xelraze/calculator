@@ -64,7 +64,7 @@ public class Main {
                 return first;
 
             } catch (Exception e) {
-                System.out.println("Некорректный ввод! ");
+                System.out.println("Некорректный ввод! incorrect input");
             }
             return 0;
         }
@@ -95,7 +95,7 @@ public class Main {
             }
             return first;
         }
-        /** Метод calculate2
+        /** Метод calculate3
          К переменной first присваивается значение первого оператора
          * В методе указываются условия при которых будут выполняться операции выделения остатка и возведения в степень
          К переменной second присваивается значение первого оператора
