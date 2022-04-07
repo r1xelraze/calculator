@@ -19,12 +19,12 @@ public class Main {
     public static class Calculator {
         /** Поле для поиска пробелов в выражении */
         String[] space;
-        /** Поле индентификатор */
+        /** Поле идентификатор */
         int indexspace;
         /**
          * Конструктор для установки значений полей
-         * @param nums символы до пробела
-         * indexspace индентификатор
+         * indexspace идентификатор
+         * space массив принимающий в себя значения выражения
          * */
         public Calculator(String nums) {
             this.space = nums.split(" ");
