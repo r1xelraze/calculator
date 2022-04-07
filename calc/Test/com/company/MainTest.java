@@ -9,41 +9,42 @@ class MainTest {
     @Test
     void PlusEqualFour() {
         Main.Calculator calculator = new Main.Calculator("5 + 5");
-        assertEquals(10, calculator.calculate() );
+        assertEquals(10, calculator.PlusAndMinus() );
 
     }
     @Test
     void MinusEqualFour() {
         Main.Calculator calculator = new Main.Calculator("5 - 5");
-        assertEquals(0, calculator.calculate() );
+        assertEquals(0, calculator.PlusAndMinus() );
 
     }
     @Test
     void divisionEqualFour() {
         Main.Calculator calculator = new Main.Calculator("5 / 5");
-        assertEquals(1, calculator.calculate() );
+        assertEquals(1, calculator.PlusAndMinus() );
 
     }
     @Test
     void multiplicationEqualFour() {
         Main.Calculator calculator = new Main.Calculator("5 * 5");
-        assertEquals(25, calculator.calculate() );
+        assertEquals(25, calculator.PlusAndMinus() );
     }
     @Test
     void remainderDivisionEqualFour() {
-        Main.Calculator calculator = new Main.Calculator("2 % 5");
-        assertEquals(2, calculator.calculate() );
+        Main.Calculator calculator = new Main.Calculator("5 % 2");
+        assertEquals(1, calculator.PlusAndMinus() );
     }
     @Test
     void exponentiationEqualFour() {
         Main.Calculator calculator = new Main.Calculator("2 ^ 5");
-        assertEquals(32, calculator.calculate() );
+        assertEquals(32, calculator.PlusAndMinus() );
     }
     @Test
     void ExceptionEqualFour() {
-        Main.Calculator calculator = new Main.Calculator("eqeq");
-        assertEquals(0, calculator.calculate() );
+        Main.Calculator calculator = new Main.Calculator("eq+rqr");
+        assertEquals( "Некорректный ввод! incorrect input!"  , calculator.PlusAndMinus() );
     }
+
 
 
 

@@ -3,18 +3,12 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
-    /** Метод main
-     * Объект Scanner
-     * Ввод переменной nums
-     * Оъект класса Calculator
-     * Вывод на консоль
-     * */
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String nums = scanner.nextLine();
         Calculator calculator = new Calculator(nums);
-        System.out.println(nums + " = " + calculator.calculate());
+        System.out.println(nums + " = " + calculator.PlusAndMinus());
     }
     /**
      * Класс описывающий калькулятор
@@ -28,7 +22,7 @@ public class Main {
         /** Поле индентификатор */
         int indexspace;
         /**
-         * Метод для установки значений полей
+         * Конструктор для установки значений полей
          * @param nums символы до пробела
          * indexspace индентификатор
          * */
@@ -37,24 +31,23 @@ public class Main {
             this.indexspace = 0;
         }
         /** Метод calculate
-         * Ключвое слово try используется для ообработки исключительных операций
-         * К переменной first присваивается результат метода calculate2
+         * Ключевое слово try используется для обработки исключительных операций
+         * К переменной first присваивается результат метода DivisionAndMultiplication
          * В методе указываются условия при которых будут выполняться операции сложения и вычитания
-         * К переменной second присваивается результат метода calculate2
+         * К переменной second присваивается результат метода DivisionAndMultiplication
          * @return first
          * */
-        public double calculate() {
+        public double PlusAndMinus() {
             try {
-                double first = calculate2();
+                double first = DivisionAndMultiplication();
                 while (indexspace < space.length) {
                     String operator = space[indexspace];
                     if (!operator.equals("+") && !operator.equals("-")) {
-
                         return 0;
                     } else {
                         indexspace++;
                     }
-                    double second = calculate2();
+                    double second = DivisionAndMultiplication();
                     if (operator.equals("+")) {
                         first += second;
                     } else {
@@ -64,7 +57,8 @@ public class Main {
                 return first;
 
             } catch (Exception e) {
-                System.out.println("Некорректный ввод! incorrect input");
+                System.out.println("Некорректный ввод! incorrect input!");
+                System.exit(0);
             }
             return 0;
         }
@@ -74,9 +68,9 @@ public class Main {
          * К переменной second присваивается результат метода calculate3
          * @return first
          * */
-        public double calculate2() {
+        public double DivisionAndMultiplication() {
 
-            double first = calculate3();
+            double first = ExpandReamainder();
             while (indexspace < space.length) {
                 String operator = space[indexspace];
 
@@ -86,7 +80,7 @@ public class Main {
                     indexspace++;
                 }
 
-                double second = calculate3();
+                double second = ExpandReamainder();
                 if (operator.equals("*")) {
                     first *= second;
                 } else {
@@ -100,7 +94,8 @@ public class Main {
          * В методе указываются условия при которых будут выполняться операции выделения остатка и возведения в степень
          К переменной second присваивается значение первого оператора
          * @return first
-         * */        public double calculate3() {
+         * */
+        public double ExpandReamainder() {
             double first = Double.parseDouble(space[indexspace++]);
             while (indexspace < space.length) {
                 String operator = space[indexspace];
